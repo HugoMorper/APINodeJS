@@ -17,8 +17,13 @@ router.put('/',Delete);
 //funciones
 async function Create(req,res,next){//res es la accion que se ejecuta cuando el path es invocado
     try{
-        const items = await controlador.Create();
-        respuesta.success(req,res,items,200)
+        const items = await controlador.Create(req.body);
+        if(req.body.id == 0){
+            mensaje = 'Alumno guardado con exito';
+        }else{
+            mensaje = 'Alumno actualizado con exito';
+        }
+        respuesta.success(req,res,mensaje,201)
     }catch(err){
         next(err);//?
     }

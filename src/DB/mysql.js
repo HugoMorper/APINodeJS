@@ -38,12 +38,28 @@ function conexionDB(){
 
 conexionDB();
 
-function Create(tabla,data,values){
-        return new Promise((resolve,reject)=>{
-            conexion.query(`INSERT INTO ${tabla} (${data}) VALUES (${values})`,(error, result)=>{
-                return error ? reject(error):resolve(result);
-            })
-        });
+function insertar(tabla,data){
+    return new Promise((resolve,reject)=>{
+        conexion.query(`INSERT INTO ${tabla} SET ?`,data,(error, result)=>{
+            return error ? reject(error):resolve(result);
+        })
+    });
+}
+function actualizar(tabla,data){
+    return new Promise((resolve,reject)=>{
+        conexion.query(`UPDATE ${tabla} SET ? WHERE id = ?`,[data,data.id],(error, result)=>{
+            return error ? reject(error):resolve(result);
+        })
+    });
+}
+
+function Create(tabla,data){
+        if(data && data.id == 0)
+        {
+            return insertar(tabla,data);
+        }else{
+            return actualizar(tabla,data);
+        }
 }
 
 function ReadAll(tabla){

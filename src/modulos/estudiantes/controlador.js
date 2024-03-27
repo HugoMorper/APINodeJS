@@ -5,8 +5,8 @@ const db = require('../../DB/mysql');//con esta constante hacemos la conexion a 
 const tabla = 'estudiantes';
 const data = ['nombre','edad','grupo','promedio'];
 const values = ['Andrea Lopez Jimenez',26,'3B',10];
-function Create() {
-    return db.Create(tabla,data,values);
+function Create(body) {
+    return db.Create(tabla,body);
 }
 function ReadAll() {
     return db.ReadAll(tabla);
