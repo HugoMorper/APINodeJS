@@ -1,10 +1,6 @@
-exports.success = function(req,res,mensaje='',status=200){
+exports.success = function(req,res,mensaje,status=200){
     
-    res.status(status).send({
-        error: false,
-        status:status,
-        body:mensaje
-    });
+    res.json(mensaje);
 }
 
 exports.error = function(req,res,mensaje='Error',status=500){

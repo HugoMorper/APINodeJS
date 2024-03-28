@@ -3,8 +3,7 @@
 const db = require('../../DB/mysql');//con esta constante hacemos la conexion a la base de datos, en caso de querer utilizar otra base de datos solo cambiamos la ruta del archivo.
 
 const tabla = 'estudiantes';
-const data = ['nombre','edad','grupo','promedio'];
-const values = ['Andrea Lopez Jimenez',26,'3B',10];
+
 function Create(body) {
     return db.Create(tabla,body);
 }

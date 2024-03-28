@@ -17,6 +17,7 @@ function conexionDB(){
     conexion = mysql.createConnection(dbConfig);//hace la conexion con la BD usando los datos de la constante dbconfig
     conexion.connect((err)=>{
         if(err){
+            console.log('Estamos teninendo problemas para conectar con la base de datos :c');
             console.log('[Error: ]',err);
             setTimeout(conexionDB,200);//vuelve a intentar conectarse 
         }else{

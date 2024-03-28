@@ -40,6 +40,7 @@ async function ReadAll(req,res,next){//res es la accion que se ejecuta cuando el
 async function ReadAllNames(req,res,next){//res es la accion que se ejecuta cuando el path es invocado
     try{
         const items = await controlador.ReadAllNames();
+        console.log("Mandando solo nombres");
         respuesta.success(req,res,items,200)
     }catch(err){
         next(err);
@@ -55,6 +56,9 @@ async function ReadOne(req,res,next){//res es la accion que se ejecuta cuando el
     }
 };
 
+async function Update(){
+
+}
 async function Delete(req,res,next){//res es la accion que se ejecuta cuando el path es invocado
     try{
         const items = await controlador.Delete(req.body);
