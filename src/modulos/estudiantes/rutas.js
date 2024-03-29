@@ -56,7 +56,7 @@ async function ReadOne(req,res,next){//res es la accion que se ejecuta cuando el
     }
 };
 
-async function Update(){
+async function Update(requ,res){
 
 }
 async function Delete(req,res,next){//res es la accion que se ejecuta cuando el path es invocado

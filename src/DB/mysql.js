@@ -82,7 +82,7 @@ function ReadAllNames(tabla){//tratar de hacer en una sola funcion (mergear con 
 
 function ReadOne(tabla,id){//Vamos a usar esta funcion para desplegar toda la info del alumno cuando se seleccione su nombre en la app movil
     return new Promise((resolve,reject)=>{
-        conexion.query(`SELECT * FROM ${tabla} WHERE id = ${id}`,(error,result)=>{
+        conexion.query(`SELECT * FROM ${tabla} WHERE nombre = "${id}"`,(error,result)=>{
             return error ? reject(error):resolve(result);
         })
     });
